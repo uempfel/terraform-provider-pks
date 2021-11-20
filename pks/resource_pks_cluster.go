@@ -93,6 +93,12 @@ func resourcePksCluster() *schema.Resource {
 				Description: "Network profile used to create cluster",
 				ForceNew:    true,
 			},
+			"compute_profile_name": {
+				Type:        schema.TypeString,
+				Optional:    true,
+				Description: "Compute profile used to create cluster",
+				ForceNew:    true,
+			},
 		},
 	}
 }
@@ -115,6 +121,7 @@ func resourcePksClusterCreate(d *schema.ResourceData, m interface{}) error {
 		Name:       name,
 		PlanName:   d.Get("plan").(string),
 		NetworkProfileName:   d.Get("net_profile_name").(string),
+		ComputeProfileName:   d.Get("compute_profile_name").(string),
 	}
 
 	log.Printf("[DEBUG] PKS cluster create request configuration: %#v", clusterReq)
