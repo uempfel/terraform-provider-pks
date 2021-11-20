@@ -23,6 +23,7 @@ type ClusterRequest struct {
 	PlanName   string            `json:"plan_name"`
 	Parameters ClusterParameters `json:"parameters"`
 	NetworkProfileName string `json:"network_profile_name"`
+	ComputeProfileName string `json:"compute_profile_name"`
 }
 
 type ClusterParameters struct {
